@@ -15,7 +15,7 @@ def fizz_buzz(number):
     >>> fizz_buzz(15)
     'FizzBuzz'
     """
-    return
+    return "FizzBuzz" if ((number % 3 == 0) and (number % 5 == 0)) else "Fizz" if number % 3 == 0 else "Buzz" if number % 5 == 0 else number 
 
 
 # Question 2
@@ -30,8 +30,12 @@ def sum_of_squares(numbers):
     >>> sum_of_squares([2, 4, 6])
     56
     """
-    return
+    sum = 0
 
+    for num in numbers:
+        sum += num**2
+    return sum
+   
 
 # Question 3
 
@@ -45,13 +49,12 @@ def count_vowels(string):
     >>> count_vowels("aeiou")
     5
     """
-    return
+    return string.count("a") + string.count("e") + string.count("i") + string.count("o") + string.count("u")
 
 
 # Question 4
 
 # Write a function that counts the number of repeated characters in a string.
-
 
 def count_repeats(string):
     """Returns the number of repeated characters in a string.
@@ -60,7 +63,23 @@ def count_repeats(string):
     >>> count_repeats("aeiou")
     0
     """
-    return
+
+    for s in range(0, len(string)): 
+        count = 1; 
+        for t in range(s+1, len(string)):
+            if(string[s] == string[t] and string[s] != ' '): 
+                count = count + 1; 
+        # setting the string t to 0 to avoid printing the characters already taken 
+        string = string[:t] + '0' + string[t+1:]; 
+
+        # If the count is greater than 1, the character is considered as duplicate 
+        if(count > 1 and string[s] != '0'): 
+            return count
+        
+    # No duplicate
+    count = 0
+    
+    return count 
 
 
 if __name__ == "__main__":
